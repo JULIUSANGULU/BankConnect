@@ -241,15 +241,20 @@
         Open your bank account <br />
         in just <span class="highlight">5 minutes</span>
       </h2>
-      <form class="modal__form">
+      <form class="modal__form" action="./user.php" method="POST">
         <label>username</label>
-        <input type="text" />
+        <input type="text" name="username"/>
         <label>National ID</label>
-        <input type="text" />
+        <input type="text" name="national_id"/>
 
         <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
+        <input type="email" name="email"/>
+         <label>Password</label>
+        <input type="password" name="password"/>
+         <label>Confirm Password</label>
+        <input type="text" name="cpassword"/>
+        <input type="submit" class="btn" value="Next step &rarr;">
+        <!-- <button class="btn"></button> -->
       </form>
     </div>
     <div class="overlay hidden"></div>
@@ -257,3 +262,17 @@
     <script src="script.js"></script>
   </body>
 </html>
+<?php
+  
+  $error = "";
+  $password = $_POST["password"];
+  $cpassword = $_POST["cpassword"];
+  $email = $_POST["email"];
+  $NId = $_POST['national_id'];
+
+  if($password != $cpassword){
+    $error = "Passwords dont match";
+  }else{
+    
+  } 
+?>
