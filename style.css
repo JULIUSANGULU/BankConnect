@@ -230,6 +230,7 @@ img {
   margin: 1rem;
   padding: 5px;
   font-size: 1.2rem;
+  margin-left: 5px;
 }
 
 .inputDetails:hover {
@@ -243,6 +244,7 @@ img {
   padding: 20px;
   letter-spacing: 1px;
   transition: 0.5s ease-in-out;
+  
 }
 .text-wrapper {
   color: #ea6e01;
@@ -259,6 +261,7 @@ img {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 500;
+  margin-left: 10px;
   color: #000000;
 }
 
@@ -275,6 +278,7 @@ img {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin-left: 10px;
 }
 
 h1 {
