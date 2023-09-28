@@ -237,9 +237,9 @@ img {
 }
 
 .inputDetails::placeholder {
-  color: #b5b3b399;
+  color: black;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 200;
+  font-weight: 500px;
   padding: 20px;
   letter-spacing: 1px;
   transition: 0.5s ease-in-out;
