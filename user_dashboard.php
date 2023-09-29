@@ -48,7 +48,9 @@ if (isset($_GET['logout'])) {
               <p>
                 Welcome
                 <strong>
-                  <?php echo $_SESSION['username']; ?>
+                  <?php echo $_SESSION['username'];
+                  
+                  ?>
                 </strong>
               </p>
               <p>
@@ -73,11 +75,12 @@ if (isset($_GET['logout'])) {
             <p class="font1">Checking
             <p>
             <p class="font2">*3425</p>
-
+  
           </div>
           <div class="checking">
             <p class="font1"></p>
             <p class="font2">Available Balance</p>
+            pppp
           </div>
         </div>
         <div class="flex-container2">

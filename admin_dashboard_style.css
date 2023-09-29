@@ -103,6 +103,9 @@
     justify-content: center;
     color: white;
 }
+.table{
+  height: 50vh;
+}
 .heading2{
     text-align: center;
     justify-content: center;

@@ -29,7 +29,7 @@
   </div>
   <div>
 
-    <table class="table table-success table-striped">
+    <table class="table table-success table-striped h-75">
       <div class="heading2">
         <h2 class="h2">User Table</h2>
       </div>
@@ -39,7 +39,9 @@
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Username</th>
+          <th scope="col">Email Address</th>
           <th scope="col">National ID</th>
+          <th scope="col">User Type</th>
           <th scope="col">Account Balance</th>
           <th scope="col">Edit Account Balance</th>
         </tr>
@@ -49,19 +51,32 @@
         include("./db.php");
         $query = "SELECT * FROM `users` ORDER BY id";
         $result = $data->query($query);
-
         while ($row = mysqli_fetch_array($result)) {
           echo "<tr>";
           echo "<td>" . $row['id'] . "</td>";
+          echo "<td>" . $row['first_name'] . "</td>";
+          echo "<td>" . $row['last_name'] . "</td>";
           echo "<td>" . $row['Username'] . "</td>";
           echo "<td>" . $row['Email_Address'] . "</td>";
           echo "<td>" . $row['National_Id'] . "</td>";
           echo "<td>" . $row['user_type'] . "</td>";
           echo "<td>" . $row['User_Balance'] . "</td>";
-          echo "<td>" ?> <div class=" d-flex flex-row">
-            <input type="number" name="change_balance" class="form-control" placeholder="Change Balance"><button type="submit" class="btn btn-outline-success me-3" name="update"> Edit </button>
+          echo "<td>" ?> <div class="d-flex">
+            <form action="" class="d-flex flex-row" method="POST">
+              <input type="number" name="change_balance" class="form-control" placeholder="Change Balance">
+              <button type="submit" class="btn btn-outline-success me-3" name="update"> Edit </button>
+            </form>
           </div> <?php echo "</tr>";
-                } ?>
+                  if (isset($_POST['update'])) {
+                     $id = $row['id'];
+                   $current =  $row['User_Balance'] = mysqli_real_escape_string($data, $_POST['change_balance']);
+                    $query = "UPDATE `users` SET User_Balance ='$current' where id = '$id'";
+                    mysqli_query($data, $query);
+                  }
+                }
+
+                
+                  ?>
 
       </tbody>
     </table>

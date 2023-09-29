@@ -40,7 +40,6 @@ if (isset($_POST['reg_user'])) {
         array_push($errors, "The two passwords do not match");
         // Checking if the passwords match
     }
-  
     // If the form is error free, then register the user
     if (count($errors) == 0) {
          
@@ -78,24 +77,31 @@ if (isset($_POST['login_user'])) {
     if (empty($password)) {
         array_push($errors, "Password is required");
     }
-  
+    // $query = "SELECT * FROM `users` ORDER BY id";
+    // $result = $data->query($query);
+    // while ($row = mysqli_fetch_array($result))
+    // {
+    //     if ($row['username'] === $_POST['username']) {
+    //         array_push($errors, "Enter Unique Username ");
+    //     }else{
+    //         break;
+    //     }
+    // }
    
     if (count($errors) == 0) {
         $password = md5($password);
-        $row = "";
         $query = "SELECT * FROM users WHERE username=
                 '$username' AND passcode='$password'";
         $row = mysqli_query($data, $query);
         $result = $row->fetch_assoc();
+
         if ($result["user_type"] == "user") {
 
             $_SESSION["username"] = $username;
-
             header("location:user_dashboard.php");
         } elseif ($result["user_type"] == "admin") {
 
             $_SESSION["username"] = $username;
-
             header("location:admin_dashboard.php");
         }
         
@@ -117,12 +123,4 @@ if (isset($_POST['login_user'])) {
         }
     }
 }
-if($_POST['update'])
-{
-    $id = $current = "";
-    $id = $row['id'];
-    $current = mysqli_escape_string($_POST['change_balance']);
-    $query = "UPDATE `users` SET User_Balance ='$current' where id = '$id'" ;    
-   
-    $data->close();
-}
+
