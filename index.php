@@ -1,3 +1,4 @@
+<?php include("./db.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,58 +12,11 @@
   <link rel="stylesheet" href="style.css" />
   <title>Bank App for koren</title>
 
-<<<<<<< Updated upstream:index.html
-            <span class="highlight">a better tomorrow</span>
-          </h1>
-          <h4>
-            Experience Shinhan Financial Group, a World Class Financial
-            Service..
-          </h4>
-          <button class="btn--text btn--scroll-to">
-            Learn more &DownArrow;
-          </button>
-        </div>
-        <div class="formContainer">
-          <form>
-            <div class="boxInput">
-              <input type="text" class="inputDetails" placeholder="Username" />
-              <input type="text" placeholder="Password" class="inputDetails" />
-=======
   <script defer src="script.js"></script>
 </head>
->>>>>>> Stashed changes:index.php
 
 <body>
-  <?php
-  require("./db.php");
-  $error = "";
-  $password = $cpassword = $email = $username = $NId = $hash = "";
-  $username = stripslashes($_POST['username']);
-  $username = mysqli_real_escape_string($data, $username);
-  $password =stripslashes($_POST["password"]);
-  $cpassword =stripslashes($_POST["cpassword"]);
-  $email = stripslashes($_POST["email"]);
-  $email = mysqli_real_escape_string($data, $email);
-  $create_datetime = date("Y-m-d H:i:s");
-  $NId = $_POST['national_id'];
-  $NId = mysqli_real_escape_string($data, $NId);
-  
-  if ($password != $cpassword) {
-    $error = "Passwords dont match";
-  } else {
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-  }
- 
-  print($username . " " . $email . " " . $password . " " . $NId);
-  $query = "INSERT into `users` (username, National_Id, Email_Address, passcode, create_date ) VALUES ('$username','$NId','$email', '$hash','$create_date')  ";
-  $result = mysqli_query($data, $query);
-  if ($result) {
-    echo"AMEN";
-  } else {
-    echo "FFailed";
-  }
-  echo $error;
-  ?>
+
   <header class="header">
     <nav class="nav">
       <img src="./img/logo.png" alt="logo" class="nav__logo" id="logo" />
@@ -87,24 +41,6 @@
           Together
           <br />
 
-<<<<<<< Updated upstream:index.html
-    <div class="modal hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Open your bank account <br />
-        in just <span class="highlight">5 minutes</span>
-      </h2>
-      <form class="modal__form">
-        <label>username</label>
-        <input type="text" />
-        <label>National ID</label>
-        <input type="text" />
-
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
-=======
           <span class="highlight">a better tomorrow</span>
         </h1>
         <h4>
@@ -116,10 +52,11 @@
         </button>
       </div>
       <div class="formContainer">
-        <form action="./login.php" method="POST">
+        <form action="" method="POST">
           <div class="boxInput">
-            <input type="text" class="inputDetails" placeholder="username" />
-            <input type="text" placeholder="password" class="inputDetails" />
+            <?php include('errors.php'); ?>
+            <input type="text" name="username" class="inputDetails" placeholder="username" />
+            <input type="text" name="password" placeholder="password" class="inputDetails" />
 
             <span class="text-wrapper">Forgot Password ?</span>
             <div class="createAcount">
@@ -127,19 +64,13 @@
                 New user? create account
               </span>
             </div>
-            <button class="sign_box">Sign In</button>
+            <button class="sign_box" name="login_user" type="submit">Sign In</button>
           </div>
         </form>
       </div>
->>>>>>> Stashed changes:index.php
     </div>
   </header>
 
-<<<<<<< Updated upstream:index.html
-    <script src="script.js"></script>
-  </body>
-</html>
-=======
   <section class="section" id="section--1">
     <div class="section__title">
       <h2 class="section__description">Features</h2>
@@ -291,9 +222,14 @@
       in just <span class="highlight">5 minutes</span>
     </h2>
     <form class="modal__form" action="" method="POST">
-      <label>username</label>
+      <?php include('errors.php'); ?>
+      <label>Username</label>
       <input type="text" name="username" />
-      <label>National ID</label>
+      <label>First Name</label>
+      <input type="text" name="firstname" />
+      <label>Last Name</label>
+      <input type="text" name="lastname" />
+      <label>National ID No.</label>
       <input type="text" name="national_id" />
 
       <label>Email Address</label>
@@ -302,8 +238,7 @@
       <input type="password" name="password" />
       <label>Confirm Password</label>
       <input type="text" name="cpassword" />
-      <input type="submit" class="btn" value="Next step &rarr;">
-      <!-- <button class="btn"></button> -->
+      <button class="btn" type="submit" name="reg_user">Next step &rarr;</button>
     </form>
   </div>
   <div class="overlay hidden"></div>
@@ -312,4 +247,3 @@
 </body>
 
 </html>
->>>>>>> Stashed changes:index.php

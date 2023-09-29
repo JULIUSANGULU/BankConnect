@@ -1,7 +1,7 @@
 <?php
 include_once("./db.php");
 
-
+$username = $password = "";
 
 
 if($data===false)
@@ -12,11 +12,11 @@ if($data===false)
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-	$username=$_POST["username"];
-	$password=$_POST["password"];
+	$username = mysqli_real_escape_string($data, $_POST['username']);
+	$password = mysqli_real_escape_string($data, $_POST['password']);
+  
 
-
-	$sql="select * from login where username='".$username."' AND password='".$password."' ";
+	$sql="select * from users where username='".$username."' AND passcode='".$password."' ";
 
 	$result=mysqli_query($data,$sql);
 
@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 		$_SESSION["username"]=$username;
 
-		header("location:userhome.php");
+		header("location:user_dashboard.php");
 	}
 
 	elseif($row["usertype"]=="admin")
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 		$_SESSION["username"]=$username;
 		
-		header("location:adminhome.php");
+		header("location:admin_dashboard.php");
 	} else {
         echo "username or password incorrect";
     }
