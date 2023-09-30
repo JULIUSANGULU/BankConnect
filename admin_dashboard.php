@@ -95,7 +95,6 @@
           echo "<td>" . $row['National_Id'] . "</td>";
           echo "<td>" . $row['user_type'] . "</td>";
           echo "<td>" . $row['User_Balance'] . "</td>";
-            <form action="" class="d-flex flex-row" method="POST">
           echo "<td>"  ?>
           <div class=" d-flex flex-row">
             <button type="submit" class="btn btn-outline-success me-3" name="update" id="openModalBtn" onclick="openModal()">
