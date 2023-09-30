@@ -1,6 +1,7 @@
 <?php
 // session_start();
 include("./db.php");
+$username = $_SESSION['username'];
 if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You have to log in first";
   header('location: index.php');
@@ -10,6 +11,9 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header("location: index.php");
 }
+$query = "SELECT * from `users` WHERE username ='$username'";
+$row = mysqli_query($data, $query);
+$result = $row->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,7 +84,9 @@ if (isset($_GET['logout'])) {
           <div class="checking">
             <p class="font1"></p>
             <p class="font2">Available Balance</p>
-            pppp
+            <?php
+            echo $result['User_Balance'];
+            ?><span>.00</span>
           </div>
         </div>
         <div class="flex-container2">

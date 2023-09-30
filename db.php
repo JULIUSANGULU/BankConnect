@@ -29,13 +29,17 @@ if (isset($_POST['reg_user'])) {
     $password_1 = mysqli_real_escape_string($data, $_POST['password']);
     $password_2 = mysqli_real_escape_string($data, $_POST['cpassword']);
     $create_datetime = date("Y-m-d H:i:s");
+    $account_number = getRandomStringMtrand();
     $NId = mysqli_real_escape_string($data, $_POST['national_id']);
     // Ensuring that the user has not left any input field blank
     // error messages will be displayed for every blank input
     if (empty($username)) { array_push($errors, "Username is required"); }
     if (empty($email)) { array_push($errors, "Email is required"); }
     if (empty($password_1)) { array_push($errors, "Password is required"); }
-  
+    $query = "SELECT * FROM `users`";
+    $row = mysqli_query($data, $query);
+    // $result = $row->fetch_assoc();
+
     if ($password_1 != $password_2) {
         array_push($errors, "The two passwords do not match");
         // Checking if the passwords match
@@ -110,7 +114,6 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
             
             $_SESSION['username'] = $username;
-             
 
             $_SESSION['success'] = "You have logged in!";
             
@@ -122,5 +125,16 @@ if (isset($_POST['login_user'])) {
             array_push($errors, "Username or password incorrect");
         }
     }
+}
+
+function getRandomStringMtrand($length = 11)
+{
+    $keys = array_merge(range(0, 9));
+    $key = "";
+    for ($i = 0; $i < $length; $i ++) {
+        $key .= $keys[mt_rand(0, count($keys) - 1)];
+    }
+    $randomString = $key;
+    return $randomString;
 }
 
