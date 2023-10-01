@@ -95,12 +95,8 @@
           echo "<td>" . $row['National_Id'] . "</td>";
           echo "<td>" . $row['user_type'] . "</td>";
           echo "<td>" . $row['User_Balance'] . "</td>";
-          echo "<td>"  ?>
-          <div class=" d-flex flex-row">
-            <button type="submit" class="btn btn-outline-success me-3" name="update" id="openModalBtn" onclick="openModal()">
-              Edit </button>
-          </div> <?php echo "</td>";
-                  echo "<td>"  ?>
+          echo "<td>" . $row['account_number'] . "</td>";
+         echo "<td>"  ?>
           <div class=" d-flex flex-row">
             <button type="submit" class="btn btn-outline-success me-3" name="update" id="openModalBtn" onclick="openModal()">
               Edit </button>
@@ -134,9 +130,9 @@
         </form>
       </div>
     </div>
-<?php
-echo "<br>Using mt_rand(): " . getRandomStringMtrand();
-  ?>
+    <?php
+    echo "<br>Using mt_rand(): " . getRandomStringMtrand();
+    ?>
   </div>
 </body>
 <footer>

@@ -13,7 +13,17 @@ $data = mysqli_connect($host,$user,$password,$db);
 // Starting the session, necessary
 // for using session variables
 session_start();
-  
+
+function getRandomStringMtrand($length = 11)
+{
+    $keys = array_merge(range(0, 9));
+    $key = "";
+    for ($i = 0; $i < $length; $i++) {
+        $key .= $keys[mt_rand(0, count($keys) - 1)];
+    }
+    $randomString = $key;
+    return $randomString;
+}
 // Declaring and hoisting the variables
 $username = $email = $firstname = $lastname = $create_datetime = $password_1 = $password_2 = $NId = "";
 $errors = array();
@@ -36,10 +46,21 @@ if (isset($_POST['reg_user'])) {
     if (empty($username)) { array_push($errors, "Username is required"); }
     if (empty($email)) { array_push($errors, "Email is required"); }
     if (empty($password_1)) { array_push($errors, "Password is required"); }
-    $query = "SELECT * FROM `users`";
-    $row = mysqli_query($data, $query);
-    // $result = $row->fetch_assoc();
-
+    if (empty($lastname)) {
+        array_push($errors, "Input Your Last Name");
+    }
+    if (empty($firstname)) {
+        array_push($errors, "Input your First Name");
+    }
+    // $query = "SELECT * FROM `users`";
+    // $result = mysqli_query($data, $query, MYSQLI_USE_RESULT);
+    // while ($row = mysqli_fetch_array($result)) {
+    //     if ($account_number == $row['account_number']) {
+    //         $account_number = getRandomStringMtrand();
+    //     }else{
+    //         break;
+    //     }
+    // }
     if ($password_1 != $password_2) {
         array_push($errors, "The two passwords do not match");
         // Checking if the passwords match
@@ -51,8 +72,8 @@ if (isset($_POST['reg_user'])) {
         $password = md5($password_1);
          
         // Inserting data into table
-        $query = "INSERT INTO users (Username, first_name, last_name, National_Id, Email_Address, passcode, create_date)
-                  VALUES('$username', '$firstname', '$lastname' , '$NId' ,'$email', '$password', '$create_datetime')";
+        $query = "INSERT INTO users (Username, first_name, last_name, National_Id, Email_Address, passcode,account_number, create_date)
+                  VALUES('$username', '$firstname', '$lastname' , '$NId' ,'$email', '$password','$account_number' ,'$create_datetime')";
          
         mysqli_query($data, $query);
   
@@ -127,14 +148,5 @@ if (isset($_POST['login_user'])) {
     }
 }
 
-function getRandomStringMtrand($length = 11)
-{
-    $keys = array_merge(range(0, 9));
-    $key = "";
-    for ($i = 0; $i < $length; $i ++) {
-        $key .= $keys[mt_rand(0, count($keys) - 1)];
-    }
-    $randomString = $key;
-    return $randomString;
-}
+
 
