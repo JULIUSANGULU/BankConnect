@@ -289,6 +289,9 @@ const slider = function () {
   });
 };
 slider();
+function showPopup() {
+  alert("Enter an new account balance.");
+ }
 
 
 
