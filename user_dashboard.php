@@ -75,6 +75,7 @@ $result = $row->fetch_assoc();
       </div>
       <div class="balance">
         <div class="flex-container">
+          
           <div class="checking">
             <p class="font1">Checking
             <p>
