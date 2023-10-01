@@ -53,7 +53,7 @@ $result = $row->fetch_assoc();
                 Welcome
                 <strong>
                   <?php echo $_SESSION['username'];
-                  
+
                   ?>
                 </strong>
               </p>
@@ -78,8 +78,10 @@ $result = $row->fetch_assoc();
           <div class="checking">
             <p class="font1">Checking
             <p>
-            <p class="font2">*3425</p>
-  
+            <p class="font2"><?php
+              echo $result['account_number'];
+              ?></p>
+
           </div>
           <div class="checking">
             <p class="font1"></p>
