@@ -64,10 +64,10 @@
     <table class="table table-success table-striped h-75">
       <div class="heading2">
         <h2 class="h2">User Table</h2>
-      </div>
-      <thead>
+      </div> 
+      <thead> 
         <tr class="">
-          <th scope="col">#</th>
+          <th scope="col">S/D</th>
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Username</th>
