@@ -64,8 +64,8 @@
     <table class="table table-success table-striped h-75">
       <div class="heading2">
         <h2 class="h2">User Table</h2>
-      </div> 
-      <thead> 
+      </div>
+      <thead>
         <tr class="">
           <th scope="col">S/D</th>
           <th scope="col">First</th>
@@ -96,17 +96,15 @@
           echo "<td>" . $row['user_type'] . "</td>";
           echo "<td>" . $row['User_Balance'] . "</td>";
           echo "<td>" . $row['account_number'] . "</td>";
-         echo "<td>"  ?>
+          echo "<td>"  ?>
           <div class=" d-flex flex-row">
-            <button type="submit" class="btn btn-outline-success me-3" name="update" id="openModalBtn" onclick="openModal()">
-              Edit </button>
+            <a class="btn btn-outline-success" href="./edit_account_number.php">Edit </a>
+            <form action="" method="POST">
+              <button type="submit" class="btn btn-outline-success me-3" name="update">
+                Edit </button>
+            </form>
+
           </div> <?php echo "</td>" . "</tr>";
-                  // if (isset($_POST['update'])) {
-                  //    $id = $row['id'];
-                  //  $current =  $row['User_Balance'] = mysqli_real_escape_string($data, $_POST['change_balance']);
-                  //   $query = "UPDATE `users` SET User_Balance ='$current' where id = '$id'";
-                  //   mysqli_query($data, $query);
-                  // }
                 }
 
 
@@ -130,7 +128,7 @@
         </form>
       </div>
     </div>
-     </div>
+  </div>
 </body>
 <footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

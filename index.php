@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" type="image/png" href="img/icon.png" />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <title>Bank App for koren</title>
@@ -54,7 +54,11 @@
       <div class="formContainer">
         <form action="" method="POST">
           <div class="boxInput">
-            <?php include('errors.php'); ?>
+            <span class="text-danger d-flex text-center font-weight-light border justify-content-center rounded-pill p-2 mb-2">
+              <?php echo "";
+              include('errors.php'); ?>
+            </span>
+
             <input type="text" name="username" class="inputDetails" placeholder="username" />
             <input type="text" name="password" placeholder="password" class="inputDetails" />
 

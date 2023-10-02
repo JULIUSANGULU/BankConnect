@@ -148,5 +148,22 @@ if (isset($_POST['login_user'])) {
     }
 }
 
+if (isset($_POST['update'])) {
+               $username =  $row['username'];
+                $query = "SELECT 1 FROM `users` WHERE username=
+                '$username'";
+                $row = mysqli_query($data, $query);
+                $result = $row->fetch_assoc();
+
+                header('location:edit_account_number.php');
+}
+if (isset($_POST['update_account'])) {
+
+    $current = mysqli_real_escape_string($data, $_POST['change_balance']);
+    $query = "UPDATE `users` SET User_Balance ='$current' where username = '$username'";
+    mysqli_query($data, $query);
+    header("location:admin_dashboard.php");
+}
+
 
 
