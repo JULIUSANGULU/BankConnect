@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="shortcut icon" type="image/png" href="img/icon.png" />
-
+  <link rel="icon" href="img/logo.png">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <title>Bank App for koren</title>
@@ -83,18 +83,28 @@
       <img src="./img/signUpBg.jpg" data-src="img/signUpBg.jpg" alt="Computer" class="features__img lazy-img" />
       <div class="features__feature">
         <div class="features__icon">
-          <svg>
-            <use xlink:href="img/icons.svg#icon-monitor"></use>
-          </svg>
+         <img src="img/download (1).jpeg" alt="About Us" class="avatar" 
+         style="
+          width: 70px; /* Set the width of the avatar */
+          height: 70px; /* Set the height of the avatar */
+          border-radius: 50%; /* Create a circular avatar */
+          overflow: hidden; /* Hide any content that exceeds the circular shape */
+          border: 0px solid #333; 
+         ">
         </div>
         <h5 class="features__header">ABOUT US</h5>
       </div>
 
       <div class="features__feature">
         <div class="features__icon">
-          <svg>
-            <use xlink:href="img/icons.svg#icon-trending-up"></use>
-          </svg>
+        <img src="img/download (2).png" alt="About Us" class="avatar" 
+         style="
+          width: 70px; /* Set the width of the avatar */
+          height: 70px; /* Set the height of the avatar */
+          border-radius: 50%; /* Create a circular avatar */
+          overflow: hidden; /* Hide any content that exceeds the circular shape */
+          border: 0px solid #333; 
+         ">
         </div>
         <h5 class="features__header">Watch your money grow</h5>
       </div>
@@ -103,9 +113,14 @@
       <img src="./img/signUpBg.jpg" data-src="img/signUpBg.jpg" alt="Credit card" class="features__img lazy-img" />
       <div class="features__feature">
         <div class="features__icon">
-          <svg>
-            <use xlink:href="img/icons.svg#icon-credit-card"></use>
-          </svg>
+        <img src="img/download.jpeg" alt="About Us" class="avatar" 
+         style="
+          width: 70px; /* Set the width of the avatar */
+          height: 70px; /* Set the height of the avatar */
+          border-radius: 50%; /* Create a circular avatar */
+          overflow: hidden; /* Hide any content that exceeds the circular shape */
+          border: 0px solid #333; 
+         ">
         </div>
         <h5 class="features__header">Free debit card included</h5>
       </div>
@@ -139,9 +154,14 @@
       </div>
       <div class="operations__content operations__content--1 operations__content--active">
         <div class="operations__icon operations__icon--1">
-          <svg>
-            <use xlink:href="img/icons.svg#icon-upload"></use>
-          </svg>
+        <img src="img/transfer.jpeg" alt="About Us" class="avatar" 
+         style="
+          width: 50px; /* Set the width of the avatar */
+          height: 50px; /* Set the height of the avatar */
+          border-radius: 50%; /* Create a circular avatar */
+          overflow: hidden; /* Hide any content that exceeds the circular shape */
+          border: 0px solid #333; 
+         ">
         </div>
         <h5 class="operations__header">
           Tranfser money to anyone, instantly! No fees, no BS.

@@ -68,7 +68,7 @@ $result = $row->fetch_assoc();
           <h3 class="h3">Accounts</h3>
         </div>
         <div>
-          <img class="avatar" src="img/Image avatar.png" alt="Profile Picture" class="logo">
+          <img class="avatar" src="img/Image avatar.png" alt="Profile Picture">
         </div>
       </div>
       <div class="balance">
