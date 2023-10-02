@@ -55,22 +55,20 @@ $result = $row->fetch_assoc();
                   <?php echo $_SESSION['username'];
 
                   ?>
-                </strong>
-              </p>
-              <p>
-                <a href="index.php?logout='1'" style="color: red;">
-                  Click here to Logout
+                </strong>  <br>
+                <button class="btn btn-success">
+                <a href="index.php?logout='1'" style="color: white; text-decoration: none;">
+                 Logout
                 </a>
+              </button>
               </p>
-
-
 
             <?php endif ?>
           </h1>
           <h3 class="h3">Accounts</h3>
         </div>
         <div>
-          <img class="avatar" src="img/Image avatar.png" alt="Profile Picture" class="logo">
+          <img class="avatar" src="img/Image avatar.png" alt="Profile Picture">
         </div>
       </div>
       <div class="balance">
@@ -103,7 +101,7 @@ $result = $row->fetch_assoc();
           </div>
           <div class="icon-background" style="margin-left: 40px;">
             <i class="bi bi-credit-card"></i>
-            <p>Deposit</p>
+            <p>Pay</p>
           </div>
           <div class="icon-background" style="margin-left: 40px;">
             <i class="bi bi-chat-square-dots"></i>

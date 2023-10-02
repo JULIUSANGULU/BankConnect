@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: whitesmoke;
+}
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Makes the div take up the entire viewport height */
+}
+form {
+    text-align: center;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+}

@@ -75,7 +75,7 @@ if (isset($_POST['reg_user'])) {
         $query = "INSERT INTO users (Username, first_name, last_name, National_Id, Email_Address, passcode,account_number, create_date)
                   VALUES('$username', '$firstname', '$lastname' , '$NId' ,'$email', '$password','$account_number' ,'$create_datetime')";
          
-        mysqli_query($data, $query);
+        $result = mysqli_query($data, $query);
   
         // Storing username of the logged in user
 
@@ -84,7 +84,7 @@ if (isset($_POST['reg_user'])) {
 
         $_SESSION['success'] = "You have logged in";
          
-        header('location: index.php');
+        header('location: user_dashboard.php');
     }
 }
   
