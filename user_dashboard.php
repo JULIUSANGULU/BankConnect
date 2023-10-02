@@ -31,7 +31,7 @@ $result = $row->fetch_assoc();
       <img src="./img/logo.png" alt="logo" class="nav__logo" id="logo" />
       <ul class="nav__links">
         <li class="nav__item">
-          <a class="nav__link" href="#section--1">Home</a>
+          <a class="nav__link" href="index.php">Home</a>
         </li>
         <li class="nav__item">
           <a class="nav__link" href="#section--2">About</a>
