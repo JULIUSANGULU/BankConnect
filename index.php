@@ -242,22 +242,26 @@
       in just <span class="highlight">5 minutes</span>
     </h2>
     <form class="modal__form" action="" method="POST">
-      <?php include('errors.php'); ?>
-      <label>Username</label>
-      <input type="text" name="username" />
-      <label>First Name</label>
-      <input type="text" name="firstname" />
-      <label>Last Name</label>
-      <input type="text" name="lastname" />
-      <label>National ID No.</label>
-      <input type="text" name="national_id" />
+      <span class="text-danger font-weight-light border rounded">
+        <?php include('errors.php'); ?>
+      </span>
+      <div class="d-flex">
+        <label>Username</label>
+        <input type="text" name="username" />
+        <label>First Name</label>
+        <input type="text" name="firstname" />
+        <label>Last Name</label>
+        <input type="text" name="lastname" />
+        <label>National ID No.</label>
+        <input type="text" name="national_id" />
 
-      <label>Email Address</label>
-      <input type="email" name="email" />
-      <label>Password</label>
-      <input type="password" name="password" />
-      <label>Confirm Password</label>
-      <input type="text" name="cpassword" />
+        <label>Email Address</label>
+        <input type="email" name="email" />
+        <label>Password</label>
+        <input type="password" name="password" />
+        <label>Confirm Password</label>
+        <input type="password" name="cpassword" />
+      </div>
       <button class="btn" type="submit" name="reg_user">Next step &rarr;</button>
     </form>
   </div>
