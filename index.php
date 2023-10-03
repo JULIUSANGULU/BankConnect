@@ -246,8 +246,10 @@
         <?php include('errors.php'); ?>
       </span>
       <div class="d-flex">
+        <div class="container-fluid">
         <label>Username</label>
         <input type="text" name="username" />
+        </div>
         <label>First Name</label>
         <input type="text" name="firstname" />
         <label>Last Name</label>
