@@ -242,13 +242,13 @@ img {
 }
 
 .inputDetails::placeholder {
-  color: black;
+  color: lightgrey;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500px;
   padding: 20px;
   letter-spacing: 1px;
   transition: 0.5s ease-in-out;
-  
+  font-size: 20px;
 }
 .text-wrapper {
   color: #ea6e01;
@@ -325,10 +325,9 @@ h4 {
 
 /* FEATURES */
 .features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin: 0 12rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .features__img {
@@ -363,7 +362,18 @@ h4 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+.features_list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
 
+.featuresImg {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50rem;
+}
 /* OPERATIONS */
 .operations {
   max-width: 100rem;
@@ -722,6 +732,7 @@ p {
   gap: 2.5rem;
   height: 400px;
   overflow-y: auto;
+  width: 400px;
 }
 
 .modal__form label {
@@ -733,7 +744,15 @@ p {
   font-size: 1.7rem;
   padding: 1rem 1.5rem;
   border: 1px solid #ddd;
-  border-radius: 0.5rem;
+  border-radius: 5rem;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  border: none;
+}
+.modal__form input:hover {
+  font-size: 2rem;
 }
 
 .modal__form button {
@@ -771,4 +790,117 @@ p {
   font-weight: 400;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .hero_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .formContainer {
+    flex: 5;
+    position: absolute;
+    width: 488px;
+    height: 465px;
+    top: 70%;
+    right: 10%;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  .section {
+    margin-top: 20rem;
+  }
+  .feature {
+    display: flex;
+    flex-direction: row;
+  }
+  .open {
+    color: antiquewhite !important;
+    font-size: 12px !important;
+    width: 14rem !important;
+  }
+}
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .hero_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .formContainer {
+    flex: 5;
+    position: absolute;
+    width: 488px;
+    height: 465px;
+    top: 70%;
+    right: 10%;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  .section {
+    margin-top: 20rem;
+  }
+  .feature {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hero_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .formContainer {
+    flex: 5;
+    position: absolute;
+    width: 488px;
+    height: 465px;
+    top: 70%;
+    right: 20%;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  .section {
+    margin-top: 20rem;
+  }
+  .feature {
+    display: flex;
+    flex-direction: row;
+  }
+  .featuresText {
+    font-size: 3rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  ...;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .hero_container {
+    display: flex;
+    max-width: 115rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    row-gap: 3rem;
+    align-content: center;
+    justify-content: center;
+    align-items: start;
+    justify-items: start;
+  }
+
+  .formContainer {
+    flex: 5;
+    position: absolute;
+    width: 488px;
+    height: 465px;
+    top: 20%;
+    right: 10%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px #faac641a;
+  }
+}
