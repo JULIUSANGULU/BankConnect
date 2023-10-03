@@ -54,7 +54,11 @@
       <div class="formContainer">
         <form action="" method="POST">
           <div class="boxInput">
-            <?php include('errors.php'); ?>
+            <span class="text-danger d-flex text-center font-weight-light border justify-content-center rounded-pill p-2 mb-2">
+              <?php echo "";
+              include('errors.php'); ?>
+            </span>
+
             <input type="text" name="username" class="inputDetails" placeholder="username" />
             <input type="text" name="password" placeholder="password" class="inputDetails" />
 

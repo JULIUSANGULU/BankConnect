@@ -1,3 +1,8 @@
+<?php if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['username']);
+  header("location: index.php");
+} ?>
 <!DOCTYPE html>
 <html>
 
@@ -52,21 +57,27 @@
         <li class="nav__item">
           <a class="nav__link" href="#section--2">About</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item me-3">
           <a class="nav__link" href="#section--3">Invest</a>
+        </li>
+        <li>
+          <a href="index.php?logout='1'" class="btn btn-danger px-4 py-2" style="color: white; text-decoration: none;">
+            Log out
+          </a>
         </li>
       </ul>
     </nav>
     <h1 class="h1">This is the admin dashboard!</h1>
     <p class="paragraph1">*The admin has oversight of all user accounts.</p>
+
   </div>
   <div>
 
     <table class="table table-success table-striped h-75">
       <div class="heading2">
         <h2 class="h2">User Table</h2>
-      </div> 
-      <thead> 
+      </div>
+      <thead>
         <tr class="">
           <th scope="col">S/D</th>
           <th scope="col">First</th>
@@ -97,17 +108,11 @@
           echo "<td>" . $row['user_type'] . "</td>";
           echo "<td>" . $row['User_Balance'] . "</td>";
           echo "<td>" . $row['account_number'] . "</td>";
-         echo "<td>"  ?>
+          echo "<td>"  ?>
           <div class=" d-flex flex-row">
-            <button type="submit" class="btn btn-outline-success me-3" name="update" id="openModalBtn" onclick="openModal()">
-              Edit </button>
+            <a class="btn btn-outline-success" href="./edit_account_number.php?id=<?= $row['id']; ?>">Edit </a>
+
           </div> <?php echo "</td>" . "</tr>";
-                  // if (isset($_POST['update'])) {
-                  //    $id = $row['id'];
-                  //  $current =  $row['User_Balance'] = mysqli_real_escape_string($data, $_POST['change_balance']);
-                  //   $query = "UPDATE `users` SET User_Balance ='$current' where id = '$id'";
-                  //   mysqli_query($data, $query);
-                  // }
                 }
 
 
@@ -131,7 +136,7 @@
         </form>
       </div>
     </div>
-     </div>
+  </div>
 </body>
 <footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
