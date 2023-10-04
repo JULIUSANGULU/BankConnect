@@ -13,6 +13,9 @@
   --color-tertiary-opacity: #ff58602d;
   --gradient-primary: linear-gradient(to top left, #ffb003, #eb6f02);
   --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+} 
+body{
+  background-color: #eb6f01;
 }
 * {
     margin: 0;
@@ -84,7 +87,7 @@
   }
 .container-fluid{
     background-color: #eb6f01;
-    height: 600px;
+    height: 100vh;
 }
 .avatar {
     width: 50px; /* Set the width of the avatar */

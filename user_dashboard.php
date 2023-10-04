@@ -14,7 +14,21 @@ if (isset($_GET['logout'])) {
 $query = "SELECT * from `users` WHERE username ='$username'";
 $row = mysqli_query($data, $query);
 $result = $row->fetch_assoc();
+$randomNumbers = [];
+$min = 1; // Minimum value for the random number
+$max = 9; // Maximum value for the random number
+
+$numberOfNumbers = 10; // Number of random numbers to generate
+
+for ($i = 0; $i < $numberOfNumbers; $i++) {
+    $randomNumber = rand($min, $max); // Generate a random number
+    $randomNumbers[] = $randomNumber; 
+}
+foreach ($randomNumbers as $randomNumber => $number) {
+ echo $number;
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +39,7 @@ $result = $row->fetch_assoc();
   <title>User Dashboard</title>
 </head>
 
-<body>
+<body class="main_body">
   <div class="container-fluid">
     <nav class="nav">
       <img src="./img/logo.png" alt="logo" class="nav__logo" id="logo" />
@@ -55,12 +69,12 @@ $result = $row->fetch_assoc();
                   <?php echo $_SESSION['username'];
 
                   ?>
-                </strong>  <br>
+                </strong> <br>
                 <button class="btn btn-success">
-                <a href="index.php?logout='1'" style="color: white; text-decoration: none;">
-                 Logout
-                </a>
-              </button>
+                  <a href="index.php?logout='1'" style="color: white; text-decoration: none;">
+                    Logout
+                  </a>
+                </button>
               </p>
 
             <?php endif ?>
@@ -73,13 +87,13 @@ $result = $row->fetch_assoc();
       </div>
       <div class="balance">
         <div class="flex-container">
-          
+
           <div class="checking">
             <p class="font1">Checking
             <p>
             <p class="font2"><?php
-              echo $result['account_number'];
-              ?></p>
+                              echo $result['account_number'];
+                              ?></p>
 
           </div>
           <div class="checking">
@@ -110,11 +124,15 @@ $result = $row->fetch_assoc();
         </div>
 
       </div>
+
+
+
+      <footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+        <script src="script.js"></script>
+      </footer>
 </body>
-<footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
-  <script src="script.js"></script>
-</footer>
+
 
 </html>
