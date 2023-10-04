@@ -49,11 +49,10 @@ if (isset($_POST['reg_user'])) {
     $query = "SELECT * from `users`";
     $row = mysqli_query($data, $query);
     $result = $data->query($query);
-    $randomNumbers = [];
     $min = 1; // Minimum value for the random number
     $max = 9; // Maximum value for the random number
-
-    $numberOfNumbers = 10; // Number of random numbers to generate
+    $randomNumbers = '';
+    $numberOfNumbers = 11; // Number of random numbers to generate
 
     for ($i = 0; $i < $numberOfNumbers; $i++) {
         $randomNumber = rand($min, $max); // Generate a random number
@@ -65,16 +64,19 @@ if (isset($_POST['reg_user'])) {
     $account_number = $randomNumbers;
     while ($row = mysqli_fetch_array($result)) {
         if ($row['account_number'] === $account_number) {
-            $randomNumbers = [];
             $min = 1; // Minimum value for the random number
             $max = 9; // Maximum value for the random number
-
-            $numberOfNumbers = 10; // Number of random numbers to generate
+            $randomNumbers = '';
+            $numberOfNumbers = 11; // Number of random numbers to generate
 
             for ($i = 0; $i < $numberOfNumbers; $i++) {
                 $randomNumber = rand($min, $max); // Generate a random number
-                $randomNumbers[] = $randomNumber;
+                $randomNumbers .= $randomNumber . ', '; // Concatenate the number to the string
             }
+
+            // Remove the trailing comma and space from the string
+            $randomNumbers = rtrim($randomNumbers, ', ');
+            $account_number = $randomNumbers;
         }
     }
     
