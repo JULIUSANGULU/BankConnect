@@ -14,19 +14,6 @@ if (isset($_GET['logout'])) {
 $query = "SELECT * from `users` WHERE username ='$username'";
 $row = mysqli_query($data, $query);
 $result = $row->fetch_assoc();
-$randomNumbers = [];
-$min = 1; // Minimum value for the random number
-$max = 9; // Maximum value for the random number
-
-$numberOfNumbers = 10; // Number of random numbers to generate
-
-for ($i = 0; $i < $numberOfNumbers; $i++) {
-    $randomNumber = rand($min, $max); // Generate a random number
-    $randomNumbers[] = $randomNumber; 
-}
-foreach ($randomNumbers as $randomNumber => $number) {
- echo $number;
-}
 ?>
 
 <!DOCTYPE html>

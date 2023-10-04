@@ -28,7 +28,7 @@ if (isset($_POST['update_account'])) {
         <div class="container-fluid">
         <form method="POST" action="">
             <label for="">
-                <h1>Change Account Balance of <?php $result['Username']  ?>  </h1>
+                <h1>Change Account Balance of <?php echo $result['Username']  ?>  </h1>
             </label> <br> <br>
             <input class="form-control" type="int" placeholder="Enter a New Value" name="change_balance"> <br>
             <button type="submit" name="update_account" class="btn btn-success">Submit</button>

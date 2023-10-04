@@ -56,12 +56,12 @@ if (isset($_POST['reg_user'])) {
 
     for ($i = 0; $i < $numberOfNumbers; $i++) {
         $randomNumber = rand($min, $max); // Generate a random number
-        $randomNumbers .= $randomNumber . ', '; // Concatenate the number to the string
+        $randomNumbers .= $randomNumber . ''; // Concatenate the number to the string
     }
 
     // Remove the trailing comma and space from the string
-    $randomNumbers = rtrim($randomNumbers, ', ');
-    $account_number = $randomNumbers;
+    $randomNumbers = trim($randomNumbers, '');
+    $account_number = str_shuffle($randomNumbers);
     while ($row = mysqli_fetch_array($result)) {
         if ($row['account_number'] === $account_number) {
             $min = 1; // Minimum value for the random number
@@ -71,12 +71,12 @@ if (isset($_POST['reg_user'])) {
 
             for ($i = 0; $i < $numberOfNumbers; $i++) {
                 $randomNumber = rand($min, $max); // Generate a random number
-                $randomNumbers .= $randomNumber . ', '; // Concatenate the number to the string
+                $randomNumbers .= $randomNumber . ''; // Concatenate the number to the string
             }
 
             // Remove the trailing comma and space from the string
-            $randomNumbers = rtrim($randomNumbers, ', ');
-            $account_number = $randomNumbers;
+            $randomNumbers = rtrim($randomNumbers, '');
+            $account_number = str_shuffle($randomNumbers);
         }
     }
     
