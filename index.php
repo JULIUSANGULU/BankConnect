@@ -55,7 +55,7 @@
       <div class="formContainer">
         <span class="errors">
           <?php echo "";
-          include('errors.php'); ?>
+          include('errors_user.php'); ?>
         </span>
         <form action="" method="POST">
 

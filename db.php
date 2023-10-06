@@ -34,6 +34,7 @@ session_start();
 // Declaring and hoisting the variables
 $username = $email = $firstname = $lastname = $create_datetime = $password_1 = $password_2 = $NId = "";
 $errors = array();
+$errors_user = array();
 $_SESSION['success'] = "";
 // Registration code
 if (isset($_POST['reg_user'])) {
@@ -100,10 +101,9 @@ if (isset($_POST['reg_user'])) {
         array_push($errors, "The two passwords do not match");
         // Checking if the passwords match
     }
-    while ($row = mysqli_fetch_array($result)) {
-        if ($row['username'] === $_POST['username']) {
-            array_push($errors, "Enter Unique Username ");
-        }
+    $duplicate = mysqli_query($data, "SELECT * FROM `users` where username='$username'");
+    if (mysqli_num_rows($duplicate) > 0) {
+                array_push($errors, "Enter Unique Username ");
     }
     // If the form is error free, then register the user
     if (count($errors) == 0) {
@@ -137,51 +137,58 @@ if (isset($_POST['login_user'])) {
   
     // Error message if the input field is left blank
     if (empty($username)) {
-        array_push($errors, "Username is required");
+        array_push($errors_user, "Username is required");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors_user, "Password is required");
     }
     $query = "SELECT * FROM `users` ORDER BY id";
     $result = $data->query($query);
-    while ($row = mysqli_fetch_array($result)) {
-        if ($row['username'] === $_POST['username']) {
-            array_push($errors, "Enter Unique Username ");
-        }
-    }
+    // while ($row = mysqli_fetch_array($result)) {
+    //     if ($row['username'] === $_POST['username']) {
+    //         array_push($errors, "Enter Unique Username ");
+    //     }
+    // }
    
-    if (count($errors) == 0) {
+    if (count($errors_user) == 0) {
+        // if (mysqli_num_rows($row) > 0) {
+        //     $userdata = mysqli_fetch_array($row);       
+        // }
         $password = md5($password);
         $query = "SELECT * FROM users WHERE username=
                 '$username' AND passcode='$password'";
         $row = mysqli_query($data, $query);
         $result = $row->fetch_assoc();
-
-        if ($result["user_type"] == "user") {
-
-            $_SESSION["username"] = $username;
-            header("location:user_dashboard.php");
-        } elseif ($result["user_type"] == "admin") {
-
-            $_SESSION["username"] = $username;
-            header("location:admin_dashboard.php");
+        if (!isset($query)) {
+            array_push($errors_user, "Username or password incorrect");
+            // header('location: index.php');
         }
+
         
   
     
-        if (mysqli_num_rows($results) == 1) {
-            
+          if (mysqli_num_rows($row) == 1) {
+            $query = "SELECT * FROM users WHERE username=
+                '$username' AND passcode='$password'";
+            $row = mysqli_query($data, $query);
+            $result = $row->fetch_assoc();
             $_SESSION['username'] = $username;
 
             $_SESSION['success'] = "You have logged in!";
-            
-            header('location: user_dashboard.php');
+            if ($result["user_type"] == "user") {
+
+                $_SESSION["username"] = $username;
+                header("location:user_dashboard.php");
+            } elseif ($result["user_type"] == "admin") {
+
+                $_SESSION["username"] = $username;
+                header("location:admin_dashboard.php");
+            }
         }
-        else {
-             
-            // If the username and password doesn't match
-            array_push($errors, "Username or password incorrect");
-        }
+    } else {
+
+        // If the username and password doesn't match
+        // array_push($errors_user, "Username or password incorrect");
     }
 }
 
