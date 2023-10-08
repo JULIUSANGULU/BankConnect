@@ -66,7 +66,7 @@
 
 
             <input type="text" name="username" class="inputDetails" placeholder="username" />
-            <input type="text" name="password" placeholder="password" class="inputDetails" />
+            <input type="password" name="password" placeholder="password" class="inputDetails" />
 
             <span class="text-wrapper">Forgot Password ?</span>
             <div class="createAcount">
@@ -146,7 +146,7 @@
               " />
         </div>
         <h5 class="operations__header">
-          Tranfser money to anyone, instantly! No fees, no BS.
+          Transfer money to anyone, instantly! No fees, no BS.
         </h5>
       </div>
 
@@ -177,7 +177,7 @@
     <div class="section__title section__title--testimonials">
       <h2 class="section__description">Not sure yet?</h2>
       <h3 class="section__header">
-        Millions of people are already making their lifes simpler.
+        Millions of people are already making their lives simpler.
       </h3>
     </div>
   </section>

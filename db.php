@@ -93,9 +93,9 @@ if (isset($_POST['reg_user'])) {
     if (empty($firstname)) {
         array_push($errors, "Input your First Name");
     }
-    // if(strlen($NId) != 13 ){
-    //     array_push($errors, "Input a valid National ID No.");
-    // }
+    if(strlen($NId) != 13 ){
+        array_push($errors, "Input a valid National ID No.");
+    }
 
     if ($password_1 != $password_2) {
         array_push($errors, "The two passwords do not match");
@@ -188,7 +188,7 @@ if (isset($_POST['login_user'])) {
     } else {
 
         // If the username and password doesn't match
-        // array_push($errors_user, "Username or password incorrect");
+        array_push($errors_user, "Username or password incorrect");
     }
 }
 
